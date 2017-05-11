@@ -1,7 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {Http, HttpModule} from '@angular/http';
+import {AuthConfig, AuthHttp} from 'angular2-jwt';
 
 import {AppRoutingModule} from 'app/app-routing.module';
 
@@ -15,6 +16,19 @@ import {UserService} from 'app/services/user.service';
 import {AuthenticationService} from 'app/services/authentication.service';
 import {AuthGuard} from 'app/guards/auth-guard.service';
 import {AdminAuthGuard} from 'app/guards/admin-auth-guard.service';
+import {CityService} from 'app/services/city.service';
+import {TOKEN_NAME} from 'app/services/auth.constant';
+
+export function authHttpServiceFactory(http: Http) {
+  return new AuthHttp(new AuthConfig({
+    headerPrefix: 'Bearer',
+    tokenName: TOKEN_NAME,
+    globalHeaders: [{'Content-Type': 'application/json'}],
+    noJwtError: false,
+    noTokenScheme: true,
+    tokenGetter: (() => localStorage.getItem(TOKEN_NAME))
+  }), http);
+}
 
 @NgModule({
   declarations: [
@@ -32,10 +46,12 @@ import {AdminAuthGuard} from 'app/guards/admin-auth-guard.service';
     AppRoutingModule
   ],
   providers: [
+    {provide: AuthHttp, useFactory: authHttpServiceFactory, deps: [Http]},
     AuthenticationService,
     UserService,
     AuthGuard,
-    AdminAuthGuard
+    AdminAuthGuard,
+    CityService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CityService} from 'app/services/city.service';
 
 @Component({
   selector: 'app-admin',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  city$;
 
-  constructor() { }
+  constructor(private cityService: CityService) { }
 
   ngOnInit() {
+    this.city$ = this.cityService.get();
   }
-
 }
