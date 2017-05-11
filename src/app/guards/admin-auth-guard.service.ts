@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild} from '@angular/router';
+import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 
 import {UserService} from 'app/services/user.service';
 
 @Injectable()
-export class AdminAuthGuard implements CanActivate, CanActivateChild {
+export class AdminAuthGuard implements CanActivate {
   constructor(private router: Router, private userService: UserService) {
   }
 
@@ -13,12 +13,8 @@ export class AdminAuthGuard implements CanActivate, CanActivateChild {
     if (isAdmin) {
       return true;
     } else {
-      this.router.navigate(['/']);
+      this.router.navigate(['login']);
       return false;
     }
-  }
-
-  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return this.canActivate(childRoute, state);
   }
 }

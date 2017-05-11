@@ -8,11 +8,12 @@
       <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
       <li routerLinkActive="active"><a routerLink="/user">User</a></li>
       <li routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
-
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="javascript:;" (click)="logout()">Logout</a></li>
+      <p class="navbar-text" *ngIf="isAdminUser">You are admin!</p>
+      <p class="navbar-text" *ngIf="isUser">You are user!</p>
+      <li><button class="btn navbar-btn" (click)="logout()">Logout</button></li>
     </ul>
   </div>
 </nav>

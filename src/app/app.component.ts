@@ -18,4 +18,12 @@ export class AppComponent {
     this.userService.logout();
     this.router.navigate(['/']);
   }
+
+  get isAdminUser() {
+    return this.userService.isAdminUser();
+  }
+
+  get isUser() {
+    return this.userService.isUser();
+  }
 }
