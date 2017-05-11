@@ -9,7 +9,7 @@ export class AdminAuthGuard implements CanActivate, CanActivateChild {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const isAdmin = this.userService.isAdmin();
+    const isAdmin = this.userService.isAdminUser();
     if (isAdmin) {
       return true;
     } else {

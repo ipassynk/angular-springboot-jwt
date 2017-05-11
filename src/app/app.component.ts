@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+
+import {UserService} from 'app/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular Springboot JWT Example';
+
+  constructor(private router: Router, private userService: UserService) {
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/']);
+  }
 }

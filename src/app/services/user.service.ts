@@ -6,6 +6,7 @@ import {TOKEN_NAME} from 'app/services/auth.constant';
 export class UserService {
   jwtHelper: JwtHelper = new JwtHelper();
   accessToken: string;
+  isAdmin: boolean;
 
   constructor() {
   }
@@ -13,6 +14,8 @@ export class UserService {
   login(accessToken: string) {
     const decodedToken = this.jwtHelper.decodeToken(accessToken);
     console.log(decodedToken);
+
+    this.isAdmin = decodedToken.authorities;
     this.accessToken = accessToken;
     localStorage.setItem(TOKEN_NAME, accessToken);
   }
@@ -22,7 +25,7 @@ export class UserService {
     localStorage.removeItem(TOKEN_NAME);
   }
 
-  isAdmin() {
-    // TODO
+  isAdminUser() {
+    return this.isAdmin;
   }
 }

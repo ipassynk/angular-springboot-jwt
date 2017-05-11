@@ -1,3 +1,6 @@
+<p>Non-admin username and password: john.doe and jwtpass</p>
+<p>Admin user: admin.admin and jwtpass</p>
+
 <div class="form-wrapper">
   <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
