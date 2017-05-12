@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {CityService} from 'app/services/city.service';
+import {Component, OnInit} from '@angular/core';
+
+import {AppDataService} from 'app/services/app-data.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,11 +8,12 @@ import {CityService} from 'app/services/city.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  city$;
+  users$;
 
-  constructor(private cityService: CityService) { }
+  constructor(private appDataService: AppDataService) {
+  }
 
   ngOnInit() {
-    this.city$ = this.cityService.get();
+    this.users$ = this.appDataService.getUsers();
   }
 }

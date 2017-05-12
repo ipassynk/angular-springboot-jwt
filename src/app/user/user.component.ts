@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {CityService} from 'app/services/city.service';
+import {Component, OnInit} from '@angular/core';
+
+import {AppDataService} from 'app/services/app-data.service';
 
 @Component({
   selector: 'app-user',
@@ -9,9 +10,10 @@ import {CityService} from 'app/services/city.service';
 export class UserComponent implements OnInit {
   city$;
 
-  constructor(private cityService: CityService) { }
+  constructor(private appDataService: AppDataService) {
+  }
 
   ngOnInit() {
-    this.city$ = this.cityService.get();
+    this.city$ = this.appDataService.getCities();
   }
 }

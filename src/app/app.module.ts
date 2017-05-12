@@ -16,8 +16,8 @@ import {UserService} from 'app/services/user.service';
 import {AuthenticationService} from 'app/services/authentication.service';
 import {AuthGuard} from 'app/guards/auth-guard.service';
 import {AdminAuthGuard} from 'app/guards/admin-auth-guard.service';
-import {CityService} from 'app/services/city.service';
 import {TOKEN_NAME} from 'app/services/auth.constant';
+import {AppDataService} from 'app/services/app-data.service';
 
 export function authHttpServiceFactory(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -51,7 +51,7 @@ export function authHttpServiceFactory(http: Http) {
     UserService,
     AuthGuard,
     AdminAuthGuard,
-    CityService
+    AppDataService
   ],
   bootstrap: [AppComponent]
 })
