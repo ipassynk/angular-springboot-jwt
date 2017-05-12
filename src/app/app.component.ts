@@ -9,7 +9,7 @@ import {UserService} from 'app/services/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular Springboot JWT Example';
+  title = 'Angular SpringBoot JWT integration';
 
   constructor(private router: Router, private userService: UserService) {
   }
