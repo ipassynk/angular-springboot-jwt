@@ -4,20 +4,20 @@ import {FormsModule} from '@angular/forms';
 import {Http, HttpModule} from '@angular/http';
 import {AuthConfig, AuthHttp} from 'angular2-jwt';
 
-import {AppRoutingModule} from 'app/app-routing.module';
+import {AppRoutingModule} from './app-routing.module';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {AdminComponent} from './admin/admin.component';
-import {LoginComponent} from 'app/login/login.component';
+import {LoginComponent} from './login/login.component';
 import {UserComponent} from './user/user.component';
 
-import {UserService} from 'app/services/user.service';
-import {AuthenticationService} from 'app/services/authentication.service';
-import {AuthGuard} from 'app/guards/auth-guard.service';
-import {AdminAuthGuard} from 'app/guards/admin-auth-guard.service';
-import {TOKEN_NAME} from 'app/services/auth.constant';
-import {AppDataService} from 'app/services/app-data.service';
+import {UserService} from './services/user.service';
+import {AuthenticationService} from './services/authentication.service';
+import {AuthGuard} from './guards/auth-guard.service';
+import {AdminAuthGuard} from './guards/admin-auth-guard.service';
+import {TOKEN_NAME} from './services/auth.constant';
+import {AppDataService} from './services/app-data.service';
 
 export function authHttpServiceFactory(http: Http) {
   return new AuthHttp(new AuthConfig({

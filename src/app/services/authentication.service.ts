@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import {TOKEN_AUTH_PASSWORD, TOKEN_AUTH_USERNAME} from 'app/services/auth.constant';
+import {TOKEN_AUTH_PASSWORD, TOKEN_AUTH_USERNAME} from '../services/auth.constant';
 
 @Injectable()
 export class AuthenticationService {

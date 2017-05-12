@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {tokenNotExpired} from 'angular2-jwt';
 
-import {TOKEN_NAME} from 'app/services/auth.constant';
-import {UserService} from 'app/services/user.service';
+import {TOKEN_NAME} from '../services/auth.constant';
+import {UserService} from '../services/user.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

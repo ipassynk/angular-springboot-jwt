@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {AuthenticationService} from 'app/services/authentication.service';
-import {UserService} from 'app/services/user.service';
+
+import {AuthenticationService} from '../services/authentication.service';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'login',
