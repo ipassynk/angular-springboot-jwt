@@ -1,9 +1,9 @@
 {
-  "/springjwt": {
+  "/springjwt/*": {
     "target": "http://localhost:8080",
     "secure": false
   },
-  "/oauth": {
+  "/oauth/*": {
     "target": "http://localhost:8080",
     "secure": false
   }
