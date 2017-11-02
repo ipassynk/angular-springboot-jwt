@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 
 import {UserService} from './services/user.service';
 
@@ -11,7 +12,13 @@ import {UserService} from './services/user.service';
 export class AppComponent {
   title = 'Angular SpringBoot JWT integration';
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router, private userService: UserService, private cdRef:ChangeDetectorRef) {
+
+  }
+
+  ngAfterViewChecked() { 
+    // Avoid the error: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked
+    this.cdRef.detectChanges();
   }
 
   logout() {
