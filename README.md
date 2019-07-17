@@ -10,6 +10,10 @@ https://medium.com/@juliapassynkova/angular-springboot-jwt-integration-p-1-800a3
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+Note: run the command below to make sure the port 4200 here talk to port 8080 for Spring Boot app.
+
+ng serve --proxy-config proxy.conf.json
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
